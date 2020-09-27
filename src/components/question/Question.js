@@ -22,7 +22,6 @@ export default class Question extends Component {
                 <h1>{this.props.question}</h1>
                 <input 
                     type="range" 
-                    id="rating" 
                     name="rating" 
                     min="1" 
                     max="5" 

@@ -1,0 +1,12 @@
+.wrapper {
+    width: 100;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.button {
+    width: 10%;
+    height: 30px;
+    margin: 10px 2px;
+    font-weight: 700;
+}

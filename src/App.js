@@ -1,12 +1,10 @@
 import React from 'react';
-import Question from './components/question/Question';
+import QuestionContainer from './components/questionContainer/QuestionContainer';
 
 function App() {
   return (
     <div className="App">
-      <Question 
-        question="This is a question?"
-      />
+      <QuestionContainer />
     </div>
   );
 }
