@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from '../navigation/Navigation';
 import Slider from '../slider/Slider';
-
+import ProgressTracker from '../progressTracker/ProgressTracker';
 
 export default class QuestionContainer extends Component {
 
@@ -54,6 +54,8 @@ export default class QuestionContainer extends Component {
     }
 
     render() {
+        let max = this.countQuestions()
+        let questionNumber = this.state.question.substring(1);
         return (
             <div>
                 {this.state.questions[this.state.question].question}
@@ -62,6 +64,7 @@ export default class QuestionContainer extends Component {
                     handleNext={this.handleNext} 
                     handlePrevious={this.handlePrevious} 
                 />
+                <ProgressTracker max={String(max)} value={questionNumber}/>
             </div>
         )
     }

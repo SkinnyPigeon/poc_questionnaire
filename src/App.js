@@ -7,7 +7,7 @@ import fcrb_questions from './components/poc_questions/fcrb';
 function App() {
   return (
     <div className="App">
-      <QuestionContainer questions={zmc_questions}/>
+      <QuestionContainer questions={fcrb_questions}/>
     </div>
   );
 }
