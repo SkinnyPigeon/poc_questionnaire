@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Question from '../question/Question';
 import Navigation from '../navigation/Navigation';
 import Slider from '../slider/Slider';
 
@@ -7,21 +6,7 @@ import Slider from '../slider/Slider';
 export default class QuestionContainer extends Component {
 
     state = {
-        questions: {
-            q1: {
-                question: <Question question="This is a question?" />,
-                answer: 1
-            },
-            q2: {
-                question: <Question question="This is another question?" />,
-                answer: 1
-
-            },
-            q3: {
-                question: <Question question="This is the final question?" />,
-                answer: 1
-            }
-        },
+        questions: this.props.questions,
         question: 'q1'
     }
 
