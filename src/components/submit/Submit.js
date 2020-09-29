@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Submit.module.css';
 
-const mailjet = require('node-mailjet')
-    .connect(process.env.REACT_APP_APIKEY_PUBLIC, process.env.REACT_APP_APIKEY_PRIVATE)
-
 export default class Submit extends Component {
 
     handleKeyDown = (e) => {
@@ -16,36 +13,20 @@ export default class Submit extends Component {
         console.log("Submitting")
         let results = this.extractQsAndAs()
         console.log(results)
-        const request = mailjet
-            .post("send", { 'version': 'v3.1' })
-            .request({
-                "Messages": [
-                    {
-                        "From": {
-                            "Email": "2434924@dundee.ac.uk",
-                            "Name": "Euan"
-                        },
-                        "To": [
-                            {
-                                "Email": "euan.blackledge@soprasteria.com",
-                                "Name": "Euan"
-                            }
-                        ],
-                        "Subject": "Serums POC Results Test",
-                        "TextPart": "The following are the results from the POC dev testing",
-                        "HTMLPart": JSON.stringify(results),
-                        "CustomID": "POCTest"
-                    }
-                ]
-            })
-        request
-            .then((result) => {
-                console.log(result.body)
-            })
-            .catch((err) => {
-                console.log(err.statusCode)
-                console.log("AGHAGHA")
-            })
+        fetch('http://localhost:5001/send_results', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(results)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success: ', data);
+        })
+        .catch(error => {
+            console.error('Error: ', error)
+        })
     }
 
     extractQsAndAs = () => {
