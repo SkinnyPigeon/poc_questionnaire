@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navigation from '../navigation/Navigation';
 import Slider from '../slider/Slider';
 import ProgressTracker from '../progressTracker/ProgressTracker';
+import Submit from '../submit/Submit';
 
 export default class QuestionContainer extends Component {
 
@@ -65,6 +66,7 @@ export default class QuestionContainer extends Component {
                     handlePrevious={this.handlePrevious} 
                 />
                 <ProgressTracker max={String(max)} value={questionNumber}/>
+                <Submit questions={this.state.questions}/>
             </div>
         )
     }
