@@ -44,6 +44,7 @@ export default class Submit extends Component {
             })
             .catch((err) => {
                 console.log(err.statusCode)
+                console.log("AGHAGHA")
             })
     }
 
