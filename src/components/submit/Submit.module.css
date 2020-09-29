@@ -3,3 +3,9 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.success {
+    /* background-color: #84c20e; */
+    /* border-color: #84c20e; */
+    opacity: 1;
+}

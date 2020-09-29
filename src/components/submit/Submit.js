@@ -23,6 +23,9 @@ export default class Submit extends Component {
         .then(response => response.json())
         .then(data => {
             console.log('Success: ', data);
+            let button = document.getElementById('submitButton')
+            button.className = styles.success;
+            button.disabled = true;
         })
         .catch(error => {
             console.error('Error: ', error)
@@ -43,7 +46,7 @@ export default class Submit extends Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <button onClick={this.handleSubmission} onKeyDown={this.handleKeyDown}>Submit</button>
+                <button id="submitButton" onClick={this.handleSubmission} onKeyDown={this.handleKeyDown}>Submit</button>
             </div>
         )
     }
